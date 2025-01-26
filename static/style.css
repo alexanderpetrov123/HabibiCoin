@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url("/static/images/lambocamels.png") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #f39c12; /* Goldish color for text */
+    text-align: center;
+    font-size: 1.2em; /* Reduced base font size */
+}
+
+/* Header */
+.header {
+    background-color: rgba(30, 30, 30, 0.8); /* Transparent background */
+    color: #f39c12; /* Goldish color for header */
+    margin: 40px auto; /* Center the header */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; /* Center the text */
+    max-width: 800px; /* Limit the width */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add shadow */
+    font-size: 1.3em; /* Reduced text size */
+}
+
+/* About Section */
+.about-section {
+    background-color: rgba(30, 30, 30, 0.8); /* Transparent background */
+    color: #f39c12; /* Goldish color for text */
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    text-align: left;
+    font-size: 1.2em; /* Reduced text size */
+}
+
+/* Features Section */
+.features-section {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #f39c12; /* Goldish color for text */
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    text-align: left;
+    font-size: 1.2em; /* Reduced text size */
+}
+
+.features-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features-section li {
+    margin: 10px 0;
+    font-size: 1.4em; /* Reduced list item size */
+}
+
+/* Blinking Text */
+.blinking {
+    font-size: 2em; /* Adjusted font size */
+    color: #FF4500; /* Reddish-orange color */
+    animation: blink-animation 1.5s steps(5, start) infinite; 
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* Keyframes for blinking effect */
+@keyframes blink-animation {
+    to {
+        visibility: hidden; /* Toggle visibility */
+    }
+}
+
+/* Buttons */
+.telegram-btn,
+button {
+    background-color: #0088cc;
+    color: #fff;
+    padding: 12px 25px; /* Adjusted padding */
+    font-size: 1.4em; /* Adjusted font size */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.telegram-btn:hover,
+button:hover {
+    background-color: #006699;
+}
+
+/* Converter Section */
+.converter {
+    background-color: rgba(30, 30, 30, 0.8); /* Transparent background */
+    color: #f39c12; /* Goldish color for text */
+    padding: 25px; /* Adjusted padding */
+    border-radius: 10px;
+    margin: 30px auto; /* Center the container */
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+    overflow: hidden; /* Prevent content from overflowing */
+    font-size: 1.2em; /* Adjusted text size */
+}
+
+/* Ensure images stay within the container */
+.converter img {
+    max-width: 100%; 
+    height: auto; 
+    margin-top: 15px; /* Adjusted margin */
+    border-radius: 10px;
+}
+
+/* FAQ Section */
+.faq {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #f39c12; /* Goldish color for text */
+    padding: 25px; /* Adjusted padding */
+    margin: 40px auto; /* Adjusted margin */
+    border-radius: 10px;
+    max-width: 800px;
+    text-align: left;
+    font-size: 1.2em; /* Adjusted text size */
+}
+
+.faq h2 {
+    color: #f39c12;
+}
+
+.faq-item {
+    margin-bottom: 20px; /* Adjusted margin */
+}
+
+.faq-question {
+    font-size: 1.5em; /* Adjusted question size */
+    color: #f39c12;
+    cursor: pointer; /* Changes the pointer to a hand icon */
+    margin: 0;
+}
+
+.faq-answer {
+    font-size: 1.3em; /* Adjusted answer size */
+    margin-top: 15px; /* Adjusted margin */
+    display: none;
+    color: #cccccc;
+}
+
+/* Footer */
+.footer {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #f39c12; /* Goldish color for text */
+    padding: 15px; /* Adjusted padding */
+    margin-top: 20px; /* Adjusted margin */
+    text-align: center;
+    font-size: 1.1em; /* Adjusted text size */
+}

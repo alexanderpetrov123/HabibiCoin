@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabibiCoin</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/images/hbctoken.png" type="image/png">
+
+</head>
+
+<body>
+    <!-- Blinking Announcement -->
+    <div class="blinking">
+        🐪 HabibiCoin - Turning Camels Into Lambos 🏎️
+    </div>
+
+    <!-- Header Section -->
+    <div class="header">
+        <header class="habibi-header">
+            <h1>HabibiCoin</h1>
+            <h2>"Habibi, come to Dubai"</h2>
+            <p>
+                Welcome to the official HabibiCoin platform! Experience the unique crypto revolution that blends tradition with modern technology. Start mining HabibiCoins today and watch your dreams of luxury soar!
+            </p>
+        </header>
+    </div>
+
+    <!-- Join Telegram Button -->
+    <div class="telegram-btn-container">
+        <a href="https://t.me/+3iPa5sTx9mBmZWI0" class="telegram-btn" target="_blank">Join Our Telegram Group</a>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2>About HabibiCoin</h2>
+        <p>
+            HabibiCoin is a decentralized cryptocurrency inspired by the rich heritage and entrepreneurial spirit of the Middle East. With a strong foundation in blockchain technology, HabibiCoin is not just a currency—it’s a way of life. By investing in HabibiCoin, you’re joining a movement toward financial independence and limitless possibilities.
+        </p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2>Why Choose HabibiCoin?</h2>
+        <ul>
+            <li><strong>Security:</strong> Powered by blockchain, your assets are secure and tamper-proof.</li>
+            <li><strong>Innovation:</strong> Be part of a modern digital economy with real-world use cases.</li>
+            <li><strong>Community:</strong> Join a vibrant and supportive global community.</li>
+            <li><strong>Rewards:</strong> Earn rewards through mining and staking.</li>
+        </ul>
+    </section>
+
+    <!-- Container miner -->
+    <div class="converter">
+        <div class="section">
+            <p>1 HabibiCoin = ${{eth_price}}</p>
+
+            <h2>Mine HabibiCoins</h2>
+            <p id="counter">Habibi Coins: 0</p>
+            <button onclick="incrementCounter()">Mine HabibiCoins</button>
+        </div>
+
+        <div class="section">
+            <p id="conversion-result">Start mining</p>
+        </div>
+        <img src="/static/images/hbcbgr.png" alt="HabibiCoin Image" class="converter-image">
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2>FAQ</h2>
+        <div class="faq-item">
+            <h3 class="faq-question">What is HabibiCoin?</h3>
+            <p class="faq-answer" style="display: none;">HabibiCoin is your opportunity to come to Dubai and experience the future of decentralized finance.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Is this a safe investment?</h3>
+            <p class="faq-answer" style="display: none;">Absolutely! HabibiCoin is built on a solid foundation just like Burj Khalifa.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Where can I buy it?</h3>
+            <p class="faq-answer" style="display: none;">You can purchase HabibiCoin on major crypto exchanges or directly from our platform.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 HabibiCoin. All rights reserved. </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none'; 
+            } else {
+                answer.style.display = 'block'; 
+            }
+        });
+    });
+        async function incrementCounter() {
+            try {
+                const response = await fetch('/increment', { method: 'POST' });
+                const data = await response.json();
+
+                document.getElementById('counter').textContent = `Habibi Coins: ${data.counter}`;
+                document.getElementById('conversion-result').textContent = data.message;
+            } catch (error) {
+                console.error('Error incrementing counter:', error);
+            }
+        }
+
+        async function fetchInitialData() {
+            try {
+                const response = await fetch('/convert');
+                const data = await response.json();
+
+                document.getElementById('counter').textContent = `Habibi Coins: ${data.counter}`;
+                document.getElementById('conversion-result').textContent = data.message;
+            } catch (error) {
+                console.error('Error fetching initial data:', error);
+            }
+        }
+
+        fetchInitialData();
+    </script>
+</body>
+
+</html>

@@ -7,6 +7,7 @@ use axum::{
 use hyper::Server;
 use serde_json::json;
 use std::{
+    env,
     net::SocketAddr,
     sync::{Arc, Mutex},
 };
@@ -91,7 +92,6 @@ async fn serve_html() -> Html<String> {
     Html(html_content)
 }
 
-
 #[tokio::main]
 async fn main() {
     let shared_state = Arc::new(Mutex::new(0));
@@ -103,7 +103,13 @@ async fn main() {
         .nest_service("/static", axum::routing::get_service(ServeDir::new("static"))) // Serve static files
         .with_state(shared_state);
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    // Get the port from the environment variable, default to 3000
+    let port = env::var("PORT")
+        .unwrap_or_else(|_| "3000".to_string())
+        .parse::<u16>()
+        .expect("Failed to parse PORT");
+
+    let addr = SocketAddr::from(([0, 0, 0, 0], port)); // Bind to 0.0.0.0 for external access
     println!("Server running at http://{}", addr);
 
     Server::bind(&addr)
